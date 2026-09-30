@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A playful one-page nail artist website concept by MONOS.">
+  <title>Polished by Mia | Nail Artist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --pink:#f36aa4;--pink-dark:#cf3f80;--pink-soft:#ffdbea;
+      --aqua:#8ed8d3;--aqua-soft:#def7f4;--cream:#fffaf2;
+      --paper:#fffef9;--ink:#18161a;--yellow:#ffda69;--muted:#665f67;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);font-family:'DM Sans',sans-serif;background:radial-gradient(circle at 10% 8%,rgba(243,106,164,.1) 0 2px,transparent 3px),radial-gradient(circle at 85% 18%,rgba(142,216,211,.12) 0 2px,transparent 3px),linear-gradient(var(--cream),#fff);background-size:38px 38px,48px 48px,auto}
+    img{display:block;width:100%;object-fit:cover}.page{overflow:hidden}.section{padding:86px 6vw}.wrap{max-width:1180px;margin:auto}
+    .topbar{background:var(--ink);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:800;letter-spacing:.3px}
+    nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 6vw;background:rgba(255,253,248,.94);backdrop-filter:blur(14px);border-bottom:2px solid rgba(24,22,26,.08)}
+    .brand{display:flex;align-items:center;gap:10px;font:800 28px 'Patrick Hand';white-space:nowrap}.brand-dot{width:14px;height:14px;border-radius:50%;background:var(--pink);border:2px solid var(--ink)}
+    .navlinks{display:flex;align-items:center;gap:22px}.navlinks a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:800}
+    .sketch-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:11px 20px;color:var(--ink);background:var(--pink);text-decoration:none;font:700 21px 'Patrick Hand';border:3px solid var(--ink);border-radius:18px 11px 17px 10px;box-shadow:4px 5px 0 var(--ink);transform:rotate(-1deg);transition:.15s ease;cursor:pointer}
+    .sketch-btn:before{content:"";position:absolute;inset:4px -5px -5px 4px;border:1.5px dashed rgba(23,23,23,.35);border-radius:14px 19px 11px 16px;pointer-events:none}.sketch-btn:hover{transform:rotate(1deg) translateY(-2px);box-shadow:5px 7px 0 var(--ink)}.sketch-btn.alt{background:var(--aqua);transform:rotate(1deg)}.sketch-btn.light{background:var(--paper)}
+    .hero{min-height:82vh;padding:72px 6vw 58px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative}.hero:before{content:"♡";position:absolute;left:3.5vw;top:25px;font:46px 'Patrick Hand';color:var(--pink);transform:rotate(-12deg)}.hero:after{content:"✦  ✧";position:absolute;right:7vw;bottom:24px;font-size:32px;color:var(--yellow);transform:rotate(8deg)}
+    .eyebrow{display:inline-block;font:22px 'Patrick Hand';background:var(--aqua-soft);padding:6px 14px;border:2px solid var(--ink);border-radius:9px 15px 8px 13px;transform:rotate(-1.5deg);margin-bottom:16px}.hero h1{font:400 clamp(58px,8vw,104px)/.87 'Patrick Hand';letter-spacing:-2px;margin:0}.hero h1 span{color:var(--pink-dark)}.hero-copy{max-width:650px;font-size:19px;line-height:1.65;margin:24px 0 12px}.location{font-weight:800;margin:0 0 28px}.hero-actions{display:flex;gap:18px;flex-wrap:wrap}
+    .photo-card{position:relative;background:var(--paper);padding:18px;border:3px solid var(--ink);border-radius:23px 16px 25px 18px;box-shadow:10px 12px 0 var(--pink-soft);transform:rotate(1.2deg)}.photo-card img{height:520px;border:2px dashed var(--ink);border-radius:16px 22px 13px 20px}.tape{position:absolute;width:98px;height:28px;background:rgba(255,217,94,.78);top:-11px;left:50%;transform:translateX(-50%) rotate(-4deg);z-index:2;border:1px solid rgba(0,0,0,.08)}.photo-note{position:absolute;right:-20px;bottom:22px;background:var(--aqua);padding:9px 16px;border:2px solid var(--ink);font:22px 'Patrick Hand';transform:rotate(-4deg)}
+    .section-heading{text-align:center;max-width:760px;margin:0 auto 45px}.section-heading small{font:22px 'Patrick Hand';color:var(--pink-dark)}.section-heading h2{font:400 clamp(44px,6vw,68px)/1 'Patrick Hand';margin:4px 0 12px}.section-heading p{color:var(--muted);line-height:1.65;margin:0}
+    .services{background:var(--paper)}.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.service{position:relative;padding:25px;background:var(--cream);border:3px solid var(--ink);border-radius:16px 23px 14px 22px;box-shadow:6px 7px 0 var(--pink-soft);transition:.2s}.service:nth-child(2n){box-shadow:6px 7px 0 var(--aqua-soft);transform:rotate(.5deg)}.service:hover{transform:translateY(-4px) rotate(-.5deg)}.service .icon{font:38px 'Patrick Hand'}.service h3{font:30px 'Patrick Hand';margin:8px 0 4px}.service p{margin:0;color:var(--muted);line-height:1.55}.price{display:inline-block;margin-top:17px;padding:6px 11px;background:var(--pink-soft);border:2px solid var(--ink);font-weight:800;border-radius:8px 12px 7px 11px}.sample-note{text-align:center;color:var(--muted);font-size:12px;margin-top:25px}
+    .portfolio{background:var(--pink-soft)}.filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:-16px auto 28px}.filter{border:2px solid var(--ink);background:var(--paper);padding:8px 14px;border-radius:999px;font:18px 'Patrick Hand';cursor:pointer}.filter.active{background:var(--yellow)}.gallery{display:grid;grid-template-columns:1.2fr .8fr .8fr;grid-template-rows:245px 245px;gap:18px}.gallery-item{position:relative;overflow:hidden;border:3px solid var(--ink);border-radius:18px;background:#eee}.gallery-item:first-child{grid-row:1/3}.gallery-item img{height:100%;transition:.3s}.gallery-item:hover img{transform:scale(1.04)}.gallery-item:nth-child(2) img{object-position:15% 35%}.gallery-item:nth-child(3) img{object-position:50% 45%}.gallery-item:nth-child(4) img{object-position:85% 55%}.gallery-item:nth-child(5) img{object-position:25% 65%}.tag{position:absolute;left:12px;bottom:12px;background:var(--paper);border:2px solid var(--ink);border-radius:9px;padding:5px 10px;font:18px 'Patrick Hand'}.center{text-align:center;margin-top:32px}
+    .about{display:grid;grid-template-columns:.85fr 1.15fr;gap:58px;align-items:center}.about .photo-card img{height:540px}.about-copy h2{font:400 clamp(48px,6vw,72px)/.95 'Patrick Hand';margin:0 0 20px}.about-copy p{font-size:17px;line-height:1.75;color:#4f4a50}.mini-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}.mini{background:var(--aqua-soft);border:2px solid var(--ink);border-radius:13px;padding:14px;text-align:center;font-weight:800}.mini:nth-child(2){background:var(--pink-soft)}.mini:nth-child(3){background:#fff1b7}
+    .booking{background:var(--aqua-soft)}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.step{position:relative;background:var(--paper);border:3px solid var(--ink);border-radius:19px 13px 21px 14px;padding:25px 20px;text-align:center;box-shadow:5px 6px 0 var(--ink)}.step .num{width:48px;height:48px;margin:-50px auto 14px;display:grid;place-items:center;background:var(--pink);border:3px solid var(--ink);border-radius:50%;font:26px 'Patrick Hand'}.step h3{font:28px 'Patrick Hand';margin:0 0 6px}.step p{color:var(--muted);line-height:1.5;margin:0}.booking .center{margin-top:42px}
+    .policies-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.policy{background:var(--paper);border:2px solid var(--ink);border-radius:14px;padding:18px}.policy h3{font:25px 'Patrick Hand';margin:0 0 6px}.policy p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}.policy-note{text-align:center;margin-top:24px;color:var(--muted);font-size:13px}
+    .reviews{background:var(--yellow)}.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.review{background:var(--paper);border:3px solid var(--ink);border-radius:18px 13px 21px 15px;padding:26px;box-shadow:7px 8px 0 rgba(24,22,26,.18)}.stars{color:var(--pink-dark);letter-spacing:2px}.review blockquote{margin:15px 0;line-height:1.7}.review strong{font:22px 'Patrick Hand'}
+    .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}.visit-card{background:var(--paper);border:3px solid var(--ink);border-radius:20px;padding:30px;box-shadow:7px 8px 0 var(--aqua)}.visit-card:nth-child(2){box-shadow:7px 8px 0 var(--pink-soft)}.visit-card h3{font:34px 'Patrick Hand';margin:0 0 15px}.hours{display:grid;grid-template-columns:1fr auto;gap:10px;border-bottom:1px dashed #aaa;padding:10px 0}.visit-card p{line-height:1.65;color:var(--muted)}
+    .faq{background:var(--pink-soft)}.faq-list{max-width:900px;margin:auto;display:grid;gap:12px}.faq-item{background:var(--paper);border:2px solid var(--ink);border-radius:13px;overflow:hidden}.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;background:none;border:0;padding:18px 20px;text-align:left;font:25px 'Patrick Hand';cursor:pointer}.faq-q span:last-child{font:28px 'DM Sans';transition:.2s}.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}.faq-a p{margin:0;padding:0 20px 20px;color:var(--muted);line-height:1.65}.faq-item.open .faq-a{max-height:220px}.faq-item.open .faq-q span:last-child{transform:rotate(45deg)}
+    .final-cta{padding:92px 6vw;text-align:center;background:var(--ink);color:#fff;position:relative}.final-cta:before{content:"✦";position:absolute;top:35px;left:12%;color:var(--yellow);font-size:40px}.final-cta:after{content:"♡";position:absolute;right:12%;bottom:32px;color:var(--pink);font:50px 'Patrick Hand'}.final-cta h2{font:400 clamp(54px,8vw,94px)/.9 'Patrick Hand';margin:0}.final-cta p{max-width:650px;margin:20px auto 30px;line-height:1.7;color:#ddd}.socials{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:25px}.socials a{color:#fff;text-decoration:none;border-bottom:2px solid var(--pink);font-weight:800}
+    footer{background:#0e0d0f;color:#aaa;text-align:center;padding:20px;font-size:12px}.demo-banner{position:fixed;left:50%;bottom:16px;z-index:80;transform:translateX(-50%);background:var(--ink);color:#fff;border:2px solid var(--paper);border-radius:999px;padding:9px 15px;font-size:12px;box-shadow:0 8px 30px rgba(0,0,0,.25);white-space:nowrap}.demo-banner b{color:var(--pink)}
+    @media(max-width:900px){.navlinks a:not(.nav-cta){display:none}.hero,.about{grid-template-columns:1fr}.hero{padding-top:58px}.photo-card img{height:470px}.services-grid{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:360px 210px 210px}.gallery-item:first-child{grid-column:1/3;grid-row:auto}.steps{grid-template-columns:repeat(2,1fr);row-gap:50px}.policies-grid,.review-grid{grid-template-columns:1fr 1fr}.review:last-child{grid-column:1/3}.visit-grid{grid-template-columns:1fr}}
+    @media(max-width:600px){.section{padding:67px 20px}nav{padding:12px 18px}.brand{font-size:23px}.navlinks .sketch-btn{font-size:17px;padding:8px 12px;min-height:42px}.hero{padding:54px 20px 52px;gap:35px;min-height:auto}.hero h1{font-size:64px}.hero-copy{font-size:16px}.photo-card{padding:11px}.photo-card img,.about .photo-card img{height:410px}.photo-note{right:-5px}.services-grid,.policies-grid,.review-grid,.visit-grid{grid-template-columns:1fr}.review:last-child{grid-column:auto}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:300px 170px 170px;gap:10px}.steps{grid-template-columns:1fr;gap:52px}.mini-list{grid-template-columns:1fr}.demo-banner{bottom:8px;max-width:94%;white-space:normal;text-align:center}.final-cta{padding:78px 20px}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">New client appointments available this month ✦</div>
+  <nav>
+    <div class="brand"><span class="brand-dot"></span> Polished by Mia</div>
+    <div class="navlinks">
+      <a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#policies">Policies</a>
+      <a class="sketch-btn nav-cta" href="#book">Book now →</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <span class="eyebrow">Nail art made personal ✦</span>
+      <h1>Detailed sets.<br><span>Designed around you.</span></h1>
+      <p class="hero-copy">Custom manicures, clean details, and a relaxed appointment experience—made for every version of your style.</p>
+      <p class="location">📍 Las Vegas, Nevada · Private salon suite</p>
+      <div class="hero-actions"><a class="sketch-btn" href="#book">Book an appointment →</a><a class="sketch-btn alt" href="#portfolio">See my work</a></div>
+    </div>
+    <div class="photo-card"><span class="tape"></span><img src="assets/real-hero-nails.jpg" alt="Pastel rainbow manicure photographed by Jung Hanbyul"><span class="photo-note">your next set? ♡</span></div>
+  </header>
+
+  <section id="services" class="section services">
+    <div class="wrap"><div class="section-heading"><small>THE MENU</small><h2>Choose your set ✦</h2><p>Every appointment includes detailed prep, shaping, and cuticle care. Nail art and length can be customized.</p></div>
+      <div class="services-grid">
+        <article class="service"><div class="icon">✧</div><h3>Acrylic Full Set</h3><p>Structured acrylic extensions customized to your preferred shape and length.</p><span class="price">from $65</span></article>
+        <article class="service"><div class="icon">♡</div><h3>Gel Manicure</h3><p>A glossy natural-nail manicure with lasting color and detailed care.</p><span class="price">from $40</span></article>
+        <article class="service"><div class="icon">✦</div><h3>Gel-X</h3><p>Lightweight full-cover extensions for a natural feel and a polished finish.</p><span class="price">from $60</span></article>
+        <article class="service"><div class="icon">⌁</div><h3>Freestyle Set</h3><p>Give me a color palette and creative direction, then let me design the look.</p><span class="price">from $85</span></article>
+        <article class="service"><div class="icon">↻</div><h3>Fill-In</h3><p>Refresh your existing acrylic set with reshaping, rebalance, and new color.</p><span class="price">from $45</span></article>
+        <article class="service"><div class="icon">○</div><h3>Soak-Off</h3><p>Gentle removal of product with natural-nail cleanup and aftercare.</p><span class="price">from $20</span></article>
+        <article class="service"><div class="icon">⋆</div><h3>Nail Art Add-Ons</h3><p>French tips, chrome, charms, hand-painted art, gems, and 3D details.</p><span class="price">from $5</span></article>
+      </div><p class="sample-note">Sample services and pricing for this fictional website concept.</p>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section portfolio">
+    <div class="wrap"><div class="section-heading"><small>RECENT WORK</small><h2>A little nail inspiration ♡</h2><p>Browse a few styles, then bring your own inspiration—or let Mia freestyle something made for you.</p></div>
+      <div class="filters"><button class="filter active">All</button><button class="filter">Short</button><button class="filter">Long</button><button class="filter">Freestyle</button><button class="filter">French</button><button class="filter">Seasonal</button></div>
+      <div class="gallery">
+        <figure class="gallery-item"><img src="assets/real-freestyle.jpg" alt="Detailed colorful freestyle nail set"><figcaption class="tag">Freestyle</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/real-french.jpg" alt="Classic pink-and-white French-tip manicure"><figcaption class="tag">French</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/real-short.jpg" alt="Short glossy nude-pink manicure"><figcaption class="tag">Short</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/real-long.jpg" alt="Long pastel floral nail set"><figcaption class="tag">Long</figcaption></figure>
+        <figure class="gallery-item"><img src="assets/real-seasonal.jpg" alt="Pink Halloween seasonal nail set"><figcaption class="tag">Seasonal</figcaption></figure>
+      </div><div class="center"><a class="sketch-btn light" href="#">View more on Instagram →</a></div>
+    </div>
+  </section>
+
+  <section id="about" class="section"><div class="wrap about">
+    <div class="photo-card"><span class="tape"></span><img src="assets/nail-artist.png" alt="Mia, a fictional professional nail artist"><span class="photo-note">meet your nail artist ✦</span></div>
+    <div class="about-copy"><span class="eyebrow">HI, I'M MIA</span><h2>Good nails.<br>Good energy.</h2><p>I’m an independent nail artist specializing in clean structure, detailed art, and sets that still feel like you. I created my private studio to give every client a comfortable, unhurried appointment.</p><p>Come with a fully planned design, a few inspiration photos, or no idea at all. We’ll choose the shape, color, and details together so you leave with a set you’re excited to show off.</p><div class="mini-list"><div class="mini">3+ years<br>experience</div><div class="mini">Licensed<br>professional</div><div class="mini">Custom art<br>specialist</div></div></div>
+  </div></section>
+
+  <section class="section booking"><div class="wrap"><div class="section-heading"><small>HOW TO BOOK</small><h2>Four easy steps</h2><p>Your booking platform handles availability, deposits, and confirmation in one simple flow.</p></div>
+    <div class="steps"><article class="step"><div class="num">1</div><h3>Choose a service</h3><p>Select the appointment that best fits the set you want.</p></article><article class="step"><div class="num">2</div><h3>Pick your time</h3><p>Choose from the currently available appointment times.</p></article><article class="step"><div class="num">3</div><h3>Pay your deposit</h3><p>Your nonrefundable deposit secures the appointment.</p></article><article class="step"><div class="num">4</div><h3>Get confirmation</h3><p>Check your email or text for your appointment details.</p></article></div>
+    <div class="center"><a class="sketch-btn" href="#book">Check availability →</a></div>
+  </div></section>
+
+  <section id="policies" class="section"><div class="wrap"><div class="section-heading"><small>BEFORE YOU BOOK</small><h2>Studio policies</h2><p>A few clear expectations help every appointment begin smoothly and stay on schedule.</p></div>
+    <div class="policies-grid">
+      <article class="policy"><h3>Deposits</h3><p>A nonrefundable deposit is required to secure every appointment and is applied to your balance.</p></article><article class="policy"><h3>Rescheduling</h3><p>Please make changes at least 24 hours in advance. A new deposit may be required after that window.</p></article><article class="policy"><h3>Late arrivals</h3><p>A grace period of 10 minutes is allowed. Later arrivals may require a simplified design or cancellation.</p></article><article class="policy"><h3>No-shows</h3><p>No-show appointments forfeit the deposit and require full payment before booking again.</p></article><article class="policy"><h3>Guests</h3><p>Please arrive alone unless a guest has been approved in advance. Space in the suite is limited.</p></article><article class="policy"><h3>Soak-offs</h3><p>Book a soak-off if you arrive with existing product. Foreign work must be removed before a new set.</p></article><article class="policy"><h3>Payments</h3><p>Card, Apple Pay, and cash are accepted. Remaining balances are due at the end of the appointment.</p></article><article class="policy"><h3>Repairs</h3><p>Contact the studio within 72 hours about lifting or breakage for a complimentary assessment.</p></article><article class="policy"><h3>Age requirement</h3><p>Clients under 16 must have a parent or guardian approve the service before the appointment.</p></article>
+    </div><p class="policy-note">These are sample policies for demonstration and would be replaced with the nail tech’s actual policies.</p>
+  </div></section>
+
+  <section class="section reviews"><div class="wrap"><div class="section-heading"><small>CLIENT LOVE</small><h2>Kind words from the nail chair</h2></div><div class="review-grid">
+    <article class="review"><div class="stars">★★★★★</div><blockquote>“The details were even better than my inspiration photo, and my set still looked fresh three weeks later.”</blockquote><strong>— Jayla R.</strong></article>
+    <article class="review"><div class="stars">★★★★★</div><blockquote>“The studio was spotless and relaxing. Mia took her time and explained how to care for my nails.”</blockquote><strong>— Tiana M.</strong></article>
+    <article class="review"><div class="stars">★★★★★</div><blockquote>“Professional, creative, and always on time. I walked in unsure and left with my favorite set yet.”</blockquote><strong>— Alexis K.</strong></article>
+  </div></div></section>
+
+  <section class="section"><div class="wrap"><div class="section-heading"><small>PLAN YOUR VISIT</small><h2>Location & hours</h2></div><div class="visit-grid">
+    <article class="visit-card"><h3>Private salon suite 📍</h3><p>Located in the southwest Las Vegas area. The exact suite address and entry instructions are included in your booking confirmation.</p><p><b>Parking:</b> Complimentary lot parking is available directly outside the building.</p></article>
+    <article class="visit-card"><h3>Studio hours</h3><div class="hours"><span>Monday</span><b>Closed</b></div><div class="hours"><span>Tuesday–Friday</span><b>10 AM–7 PM</b></div><div class="hours"><span>Saturday</span><b>9 AM–4 PM</b></div><div class="hours"><span>Sunday</span><b>Closed</b></div></article>
+  </div></div></section>
+
+  <section class="section faq"><div class="wrap"><div class="section-heading"><small>QUESTIONS, ANSWERED</small><h2>Before your appointment</h2></div><div class="faq-list">
+    <article class="faq-item"><button class="faq-q"><span>How do I book?</span><span>+</span></button><div class="faq-a"><p>Use any Book Now button to open the booking page, choose your service and time, then pay the required deposit.</p></div></article>
+    <article class="faq-item"><button class="faq-q"><span>Is a deposit required?</span><span>+</span></button><div class="faq-a"><p>Yes. Your deposit secures the appointment and is applied toward the final service total.</p></div></article>
+    <article class="faq-item"><button class="faq-q"><span>Do you accept foreign fills?</span><span>+</span></button><div class="faq-a"><p>No. Existing work from another nail tech must be removed, so please add a soak-off when booking.</p></div></article>
+    <article class="faq-item"><button class="faq-q"><span>How should I prepare?</span><span>+</span></button><div class="faq-a"><p>Arrive with clean hands and avoid trimming your cuticles. Send detailed inspiration in advance when possible.</p></div></article>
+    <article class="faq-item"><button class="faq-q"><span>Can I bring a guest?</span><span>+</span></button><div class="faq-a"><p>The private suite has limited space, so guests need to be approved before your appointment.</p></div></article>
+    <article class="faq-item"><button class="faq-q"><span>How long does an appointment take?</span><span>+</span></button><div class="faq-a"><p>Most services take 60–150 minutes depending on length, design complexity, and whether removal is needed.</p></div></article>
+    <article class="faq-item"><button class="faq-q"><span>What payment methods are accepted?</span><span>+</span></button><div class="faq-a"><p>Card, Apple Pay, and cash are accepted. Your remaining balance is due when the appointment is complete.</p></div></article>
+  </div></div></section>
+
+  <section id="book" class="final-cta"><h2>Ready for your next set?</h2><p>Choose your service, find a time that works, and let’s create something that feels completely you.</p><a class="sketch-btn" href="#">Book now →</a><div class="socials"><a href="#">Instagram</a><a href="#">TikTok</a><a href="mailto:hello@example.com">Contact</a></div></section>
+  <footer>Polished by Mia is a fictional nail-tech website concept created for demonstration purposes.<br>Hero nail photograph by Jung Hanbyul via Unsplash. Portfolio images supplied for this demo.</footer>
+</div>
+<div class="demo-banner"><b>MONOS demo:</b> sample name, images, prices, reviews, and policies</div>
+<script>
+  document.querySelectorAll('.faq-q').forEach(button=>button.addEventListener('click',()=>button.parentElement.classList.toggle('open')));
+  document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(item=>item.classList.remove('active'));button.classList.add('active')}));
+</script>
+</body>
+</html>
