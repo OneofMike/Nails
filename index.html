@@ -126,7 +126,530 @@
     <article class="faq-item"><button class="faq-q"><span>What payment methods are accepted?</span><span>+</span></button><div class="faq-a"><p>Card, Apple Pay, and cash are accepted. Your remaining balance is due when the appointment is complete.</p></div></article>
   </div></div></section>
 
-  <section id="book" class="final-cta"><h2>Ready for your next set?</h2><p>Choose your service, find a time that works, and let’s create something that feels completely you.</p><a class="sketch-btn" href="#">Book now →</a><div class="socials"><a href="#">Instagram</a><a href="#">TikTok</a><a href="mailto:hello@example.com">Contact</a></div></section>
+<style>
+  .nail-intake{
+    padding:80px 20px;
+    background:#18161a;
+    color:#fff;
+    font-family:'DM Sans',sans-serif;
+  }
+
+  .nail-intake-heading{
+    max-width:700px;
+    margin:0 auto 35px;
+    text-align:center;
+  }
+
+  .nail-intake-heading h2{
+    margin:0 0 12px;
+    font:48px 'Patrick Hand',cursive;
+  }
+
+  .nail-intake-heading p{
+    color:#ddd;
+    line-height:1.6;
+  }
+
+  .nail-form{
+    max-width:720px;
+    margin:auto;
+    padding:30px;
+    color:#18161a;
+    background:#fffef9;
+    border:3px solid #18161a;
+    border-radius:22px;
+    box-shadow:9px 10px 0 #f36aa4;
+  }
+
+  .nail-progress-text{
+    margin-bottom:8px;
+    color:#cf3f80;
+    text-align:center;
+    font:20px 'Patrick Hand',cursive;
+  }
+
+  .nail-progress-track{
+    height:12px;
+    margin-bottom:30px;
+    overflow:hidden;
+    background:#ffdbea;
+    border:2px solid #18161a;
+    border-radius:999px;
+  }
+
+  .nail-progress-fill{
+    width:9.09%;
+    height:100%;
+    background:linear-gradient(90deg,#f36aa4,#8ed8d3);
+    transition:width .25s ease;
+  }
+
+  .nail-step{
+    padding:0;
+    margin:0;
+    border:0;
+  }
+
+  .nail-step[hidden]{
+    display:none;
+  }
+
+  .nail-step legend{
+    width:100%;
+    margin-bottom:24px;
+    padding:0;
+    text-align:center;
+    font:42px/1.05 'Patrick Hand',cursive;
+  }
+
+  .nail-step input[type="text"],
+  .nail-step input[type="tel"],
+  .nail-step input[type="email"],
+  .nail-step input[type="date"],
+  .nail-step textarea{
+    width:100%;
+    padding:15px;
+    color:#18161a;
+    background:#fff;
+    border:2px solid #18161a;
+    border-radius:12px;
+    font:inherit;
+    box-sizing:border-box;
+  }
+
+  .nail-step textarea{
+    min-height:135px;
+    resize:vertical;
+  }
+
+  .nail-choices{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+
+  .nail-choice{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:15px;
+    background:#fff;
+    border:2px solid #18161a;
+    border-radius:13px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.15s;
+  }
+
+  .nail-choice:hover{
+    transform:translateY(-2px);
+    box-shadow:3px 4px 0 #ffdbea;
+  }
+
+  .nail-choice input{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+  }
+
+  .nail-choice:has(input:checked){
+    background:#ffdbea;
+    box-shadow:4px 5px 0 #18161a;
+    transform:rotate(-.5deg);
+  }
+
+  .nail-emoji{
+    font-size:25px;
+  }
+
+  .nail-actions{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    margin-top:28px;
+  }
+
+  .nail-next,
+  .nail-submit{
+    min-height:48px;
+    padding:11px 20px;
+    color:#18161a;
+    background:#f36aa4;
+    border:3px solid #18161a;
+    border-radius:18px 11px;
+    box-shadow:4px 5px 0 #18161a;
+    font:700 21px 'Patrick Hand',cursive;
+    cursor:pointer;
+  }
+
+  .nail-back{
+    background:transparent;
+    border:0;
+    font:700 19px 'Patrick Hand',cursive;
+    text-decoration:underline;
+    cursor:pointer;
+  }
+
+  .nail-note{
+    color:#665f67;
+    font-size:13px;
+    line-height:1.5;
+    text-align:center;
+  }
+
+  @media(max-width:600px){
+    .nail-form{padding:22px 16px}
+    .nail-choices{grid-template-columns:1fr}
+    .nail-step legend{font-size:35px}
+  }
+</style>
+
+<section id="book" class="nail-intake">
+  <div class="nail-intake-heading">
+    <h2>Tell me about your next set ♡</h2>
+    <p>Answer a few quick questions and send your appointment request directly to the nail tech.</p>
+  </div>
+
+  <form id="nail-form" class="nail-form">
+    <div class="nail-progress-text">
+      Question <span id="nail-current-step">1</span> of
+      <span id="nail-total-steps">11</span> ✨
+    </div>
+
+    <div class="nail-progress-track">
+      <div id="nail-progress-fill" class="nail-progress-fill"></div>
+    </div>
+
+    <fieldset class="nail-step">
+      <legend>What’s your name, pretty? 💕</legend>
+      <input name="name" type="text" placeholder="Your full name" required>
+    </fieldset>
+
+    <fieldset class="nail-step" hidden>
+      <legend>What number can I reach you at? 📱</legend>
+      <input name="phone" type="tel" placeholder="Your phone number" required>
+    </fieldset>
+
+    <fieldset class="nail-step" hidden>
+      <legend>What’s your email? 💌</legend>
+      <input name="email" type="email" placeholder="Your email address">
+    </fieldset>
+
+    <fieldset class="nail-step" hidden>
+      <legend>What are we getting into? 💅</legend>
+
+      <div class="nail-choices">
+        <label class="nail-choice">
+          <input name="service" type="radio" value="Acrylic Full Set" required>
+          <span class="nail-emoji">💎</span> Acrylic Full Set
+        </label>
+
+        <label class="nail-choice">
+          <input name="service" type="radio" value="Gel Manicure">
+          <span class="nail-emoji">🌸</span> Gel Manicure
+        </label>
+
+        <label class="nail-choice">
+          <input name="service" type="radio" value="Gel-X">
+          <span class="nail-emoji">✨</span> Gel-X
+        </label>
+
+        <label class="nail-choice">
+          <input name="service" type="radio" value="Freestyle Set">
+          <span class="nail-emoji">🎨</span> Freestyle Set
+        </label>
+
+        <label class="nail-choice">
+          <input name="service" type="radio" value="Fill-In">
+          <span class="nail-emoji">💖</span> Fill-In
+        </label>
+
+        <label class="nail-choice">
+          <input name="service" type="radio" value="Soak-Off">
+          <span class="nail-emoji">🫧</span> Soak-Off
+        </label>
+
+        <label class="nail-choice">
+          <input name="service" type="radio" value="Not sure yet">
+          <span class="nail-emoji">💭</span> Not sure yet
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="nail-step" hidden>
+      <legend>How long are we going? ✨</legend>
+
+      <div class="nail-choices">
+        <label class="nail-choice">
+          <input name="length" type="radio" value="Short" required>
+          <span class="nail-emoji">🌷</span> Short
+        </label>
+
+        <label class="nail-choice">
+          <input name="length" type="radio" value="Medium">
+          <span class="nail-emoji">💗</span> Medium
+        </label>
+
+        <label class="nail-choice">
+          <input name="length" type="radio" value="Long">
+          <span class="nail-emoji">💅</span> Long
+        </label>
+
+        <label class="nail-choice">
+          <input name="length" type="radio" value="Extra Long">
+          <span class="nail-emoji">👑</span> Extra Long
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="nail-step" hidden>
+      <legend>Which shape are you feeling? 🎀</legend>
+
+      <div class="nail-choices">
+        <label class="nail-choice">
+          <input name="shape" type="radio" value="Square" required>
+          <span class="nail-emoji">🩷</span> Square
+        </label>
+
+        <label class="nail-choice">
+          <input name="shape" type="radio" value="Coffin">
+          <span class="nail-emoji">✨</span> Coffin
+        </label>
+
+        <label class="nail-choice">
+          <input name="shape" type="radio" value="Almond">
+          <span class="nail-emoji">🌸</span> Almond
+        </label>
+
+        <label class="nail-choice">
+          <input name="shape" type="radio" value="Stiletto">
+          <span class="nail-emoji">💋</span> Stiletto
+        </label>
+
+        <label class="nail-choice">
+          <input name="shape" type="radio" value="Round">
+          <span class="nail-emoji">🫶</span> Round
+        </label>
+
+        <label class="nail-choice">
+          <input name="shape" type="radio" value="Not sure">
+          <span class="nail-emoji">💭</span> Help me choose
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="nail-step" hidden>
+      <legend>What day works best? 🗓️</legend>
+      <input id="nail-date" name="date" type="date" required>
+    </fieldset>
+
+    <fieldset class="nail-step" hidden>
+      <legend>What time do you prefer? ⏰</legend>
+
+      <div class="nail-choices">
+        <label class="nail-choice">
+          <input name="time" type="radio" value="Morning" required>
+          <span class="nail-emoji">🌤️</span> Morning
+        </label>
+
+        <label class="nail-choice">
+          <input name="time" type="radio" value="Afternoon">
+          <span class="nail-emoji">☀️</span> Afternoon
+        </label>
+
+        <label class="nail-choice">
+          <input name="time" type="radio" value="Evening">
+          <span class="nail-emoji">🌙</span> Evening
+        </label>
+
+        <label class="nail-choice">
+          <input name="time" type="radio" value="Flexible">
+          <span class="nail-emoji">🦋</span> I’m flexible
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="nail-step" hidden>
+      <legend>Do you need a soak-off? 🫧</legend>
+
+      <div class="nail-choices">
+        <label class="nail-choice">
+          <input name="soakOff" type="radio" value="Yes" required>
+          <span class="nail-emoji">💦</span> Yes, please
+        </label>
+
+        <label class="nail-choice">
+          <input name="soakOff" type="radio" value="No">
+          <span class="nail-emoji">✨</span> Nope
+        </label>
+
+        <label class="nail-choice">
+          <input name="soakOff" type="radio" value="Not sure">
+          <span class="nail-emoji">💭</span> Not sure
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="nail-step" hidden>
+      <legend>What’s currently on your nails? 👀</legend>
+
+      <div class="nail-choices">
+        <label class="nail-choice">
+          <input name="currentProduct" type="radio" value="Nothing" required>
+          <span class="nail-emoji">🤍</span> Nothing
+        </label>
+
+        <label class="nail-choice">
+          <input name="currentProduct" type="radio" value="Acrylic">
+          <span class="nail-emoji">💎</span> Acrylic
+        </label>
+
+        <label class="nail-choice">
+          <input name="currentProduct" type="radio" value="Gel-X">
+          <span class="nail-emoji">✨</span> Gel-X
+        </label>
+
+        <label class="nail-choice">
+          <input name="currentProduct" type="radio" value="Hard gel">
+          <span class="nail-emoji">🌷</span> Hard gel
+        </label>
+
+        <label class="nail-choice">
+          <input name="currentProduct" type="radio" value="Gel polish">
+          <span class="nail-emoji">💅</span> Gel polish
+        </label>
+
+        <label class="nail-choice">
+          <input name="currentProduct" type="radio" value="Not sure">
+          <span class="nail-emoji">💭</span> Not sure
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="nail-step" hidden>
+      <legend>Tell me your nail vision ✨🎀</legend>
+
+      <textarea
+        name="details"
+        placeholder="Colors, charms, French tips, characters, vibe—tell me everything 💕"
+        required
+      ></textarea>
+
+      <p class="nail-note">
+        Your appointment isn’t confirmed until the nail tech replies and any
+        required deposit is paid.
+      </p>
+    </fieldset>
+
+    <div class="nail-actions">
+      <button id="nail-back" class="nail-back" type="button" hidden>
+        ← Back
+      </button>
+
+      <button id="nail-next" class="nail-next" type="button">
+        Next question →
+      </button>
+
+      <button id="nail-submit" class="nail-submit" type="submit" hidden>
+        Send my request 💌
+      </button>
+    </div>
+  </form>
+</section>
+
+<script>
+  const nailTechPhone = "17025550123"; // Replace with the nail tech's number
+
+  const nailForm = document.getElementById("nail-form");
+  const nailSteps = [...document.querySelectorAll(".nail-step")];
+  const nailNext = document.getElementById("nail-next");
+  const nailBack = document.getElementById("nail-back");
+  const nailSubmit = document.getElementById("nail-submit");
+  const nailCurrentStep = document.getElementById("nail-current-step");
+  const nailTotalSteps = document.getElementById("nail-total-steps");
+  const nailProgressFill = document.getElementById("nail-progress-fill");
+  const nailDate = document.getElementById("nail-date");
+
+  let nailStepIndex = 0;
+
+  nailDate.min = new Date().toISOString().split("T")[0];
+  nailTotalSteps.textContent = nailSteps.length;
+
+  function showNailStep(index) {
+    nailSteps.forEach((step, stepIndex) => {
+      step.hidden = stepIndex !== index;
+    });
+
+    nailCurrentStep.textContent = index + 1;
+    nailProgressFill.style.width =
+      `${((index + 1) / nailSteps.length) * 100}%`;
+
+    nailBack.hidden = index === 0;
+    nailNext.hidden = index === nailSteps.length - 1;
+    nailSubmit.hidden = index !== nailSteps.length - 1;
+  }
+
+  function validateNailStep() {
+    const controls = [
+      ...nailSteps[nailStepIndex].querySelectorAll("input, textarea")
+    ];
+
+    const requiredControl = controls.find(control => control.required);
+
+    if (requiredControl && !requiredControl.checkValidity()) {
+      requiredControl.reportValidity();
+      return false;
+    }
+
+    return true;
+  }
+
+  nailNext.addEventListener("click", () => {
+    if (!validateNailStep()) return;
+
+    nailStepIndex++;
+    showNailStep(nailStepIndex);
+  });
+
+  nailBack.addEventListener("click", () => {
+    nailStepIndex--;
+    showNailStep(nailStepIndex);
+  });
+
+  nailForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    if (!validateNailStep()) return;
+
+    const data = new FormData(nailForm);
+
+    const message = [
+      "Hi! I would like to request a nail appointment. 💅",
+      "",
+      `Name: ${data.get("name")}`,
+      `Phone: ${data.get("phone")}`,
+      `Email: ${data.get("email") || "Not provided"}`,
+      `Service: ${data.get("service")}`,
+      `Length: ${data.get("length")}`,
+      `Shape: ${data.get("shape")}`,
+      `Preferred date: ${data.get("date")}`,
+      `Preferred time: ${data.get("time")}`,
+      `Soak-off needed: ${data.get("soakOff")}`,
+      `Current product: ${data.get("currentProduct")}`,
+      `Design details: ${data.get("details")}`
+    ].join("\n");
+
+    const separator =
+      /iPhone|iPad|iPod/i.test(navigator.userAgent) ? "&" : "?";
+
+    window.location.href =
+      `sms:${nailTechPhone}${separator}body=${encodeURIComponent(message)}`;
+  });
+
+  showNailStep(0);
+</script>
   <footer>Polished by Mia is a fictional nail-tech website concept created for demonstration purposes.<br>Hero nail photograph by Jung Hanbyul via Unsplash. Portfolio images supplied for this demo.</footer>
 </div>
 <div class="demo-banner"><b>MONOS demo:</b> sample name, images, prices, reviews, and policies</div>
